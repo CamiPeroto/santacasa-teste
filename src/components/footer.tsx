@@ -6,19 +6,16 @@ export default function Footer() {
   return (
     <footer className="bg-tertiary text-white py-8 px-6">
       <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 items-start">
-        {/* Logo */}
         <div className="flex items-start">
           <Image src="/images/logo-footer.png" alt="Filantrópica" width={120} height={120} />
         </div>
 
-        {/* Endereço */}
         <div>
           <h3 className="font-bold mb-2">Endereço:</h3>
           <p>Av. Doutor Francisco Burzio, 774</p>
           <p>Centro - 84010-200 Ponta Grossa - PR</p>
         </div>
 
-        {/* Contato + Redes */}
         <div>
           <h3 className="font-bold mb-2">Contato:</h3>
           <p>+55 (42) 3026-8000</p>

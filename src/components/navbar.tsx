@@ -1,4 +1,3 @@
-// components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
@@ -6,9 +5,14 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const handleCreateAccount = () => {
+    router.push("/account/create");
+  };
 
   return (
     <nav className="bg-nav shadow-md sticky top-0 z-50">
@@ -28,7 +32,9 @@ export default function Navbar() {
 
         <div className="flex justify-end items-center gap-2">
           <div className="hidden md:block">
-            <Button variant="default" size="lg">Criar Conta</Button>
+            <Button size="lg" onClick={handleCreateAccount}>
+              Criar Conta
+            </Button>
           </div>
           <button onClick={() => setOpen(!open)} className="md:hidden text-gray-700">
             {open ? <X size={24} /> : <Menu size={24} />}
