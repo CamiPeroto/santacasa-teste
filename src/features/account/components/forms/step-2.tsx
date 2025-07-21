@@ -12,7 +12,13 @@ import z from 'zod';
 const formSchema = z
   .object({
     email: z.string().email('Digite um e-mail válido'),
-    password: z.string().min(8, 'A senha deve ter no mínimo 8 caracteres'),
+    password: z
+      .string()
+      .min(8, 'A senha deve ter no mínimo 8 caracteres')
+      .regex(
+        /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>]).{8,}$/,
+        'A senha deve conter ao menos uma letra maiúscula, um número e um caractere especial',
+      ),
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
@@ -21,16 +27,20 @@ const formSchema = z
   });
 type FormValues = z.infer<typeof formSchema>;
 
+function getDefaultValues(data: Partial<FormValues> = {}) {
+  return {
+    email: data.email ?? '',
+    password: data.password ?? '',
+    confirmPassword: data.confirmPassword ?? '',
+  };
+}
+
 export default function Step2() {
-  const { prevStep, nextStep, updateFormData } = useMultiStep();
+  const { prevStep, nextStep, updateFormData, formData } = useMultiStep();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: '',
-      password: '',
-      confirmPassword: '',
-    },
+    defaultValues: getDefaultValues(formData),
   });
 
   const { control, handleSubmit } = form;

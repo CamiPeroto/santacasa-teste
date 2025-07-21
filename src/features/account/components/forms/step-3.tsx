@@ -19,7 +19,7 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function Step3() {
-  const { prevStep, nextStep, updateFormData, formData } = useMultiStep();
+  const { prevStep, updateFormData, formData } = useMultiStep();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),

@@ -54,17 +54,21 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+function getDefaultValues(data: Partial<FormValues> = {}) {
+  return {
+    fullName: data.fullName ?? '',
+    phone: data.phone ?? '',
+    birthDate: data.birthDate ?? '',
+    gender: data.gender ?? undefined,
+  };
+}
+
 export default function Step1() {
-  const { nextStep, updateFormData } = useMultiStep();
+  const { nextStep, updateFormData, formData } = useMultiStep();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      fullName: '',
-      phone: '',
-      birthDate: '',
-      gender: undefined,
-    },
+    defaultValues: getDefaultValues(formData),
   });
 
   const { control, handleSubmit } = form;
