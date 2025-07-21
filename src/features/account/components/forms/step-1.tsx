@@ -47,17 +47,13 @@ function onSubmit(data: FormValues) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
     <div className="space-y-4">
-      <div className="flex items-center gap-2 mb-6">
-        <User className="h-5 w-5 text-blue-600" />
-        <h3 className="text-lg font-semibold">Informações Pessoais</h3>
-      </div>
       <div className="space-y-2">
         <Label htmlFor="fullName">Nome Completo *</Label>
         <InputRHF name="fullName" control={control} placeholder="Digite seu nome completo" />
       </div>
       <div className="space-y-2">
         <Label htmlFor="phone">Telefone</Label>
-        <InputRHF name="phone" type="phone" control={control} placeholder="(11) 9 9999-9999" />
+        <InputRHF name="phone" type="phone" control={control} placeholder="(99) 9 9999-9999" />
      </div>
       <div className="space-y-2">
         <Label htmlFor="birthDate">Data de Nascimento</Label>
