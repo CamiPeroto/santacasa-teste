@@ -1,6 +1,6 @@
-import Footer from "@/components/footer";
-import Layout from "@/components/layout";
-import Navbar from "@/components/navbar";
+import Footer from '@/components/footer';
+import Layout from '@/components/layout';
+import Navbar from '@/components/navbar';
 
 export default function Home() {
   return (
@@ -8,7 +8,6 @@ export default function Home() {
       <Navbar />
       <Layout />
       <Footer />
-     
     </>
   );
 }
