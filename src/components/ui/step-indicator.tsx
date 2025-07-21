@@ -1,4 +1,3 @@
-// components/step-indicator.tsx
 "use client"
 
 import { CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -14,8 +13,8 @@ type StepIndicatorProps = {
 }
 
 export function StepIndicator({ steps, currentStep, title, currentStepTitle, description}: StepIndicatorProps) {
-  const progress = (currentStep + 1 / steps.length) * 100
-
+  const progress = ((currentStep + 1) / steps.length) * 100
+  
   return (
     <CardHeader>
       <CardTitle className="text-2xl text-center">{title}</CardTitle>
