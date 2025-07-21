@@ -7,19 +7,40 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useMultiStep } from "@/contexts/multi-step-context"
 import { GenderEnumType } from "@/enums/gender"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { ChevronLeft, ChevronRight, User } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Controller, useForm } from "react-hook-form"
 import z from "zod"
 
 
 const formSchema = z.object({
-     fullName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
-     phone: z.string().regex(/^\(\d{2}\) \d \d{4}-\d{4}$/, "Telefone inválido"),
-     birthDate: z.string().min(1, "Data de nascimento obrigatória"),
-     gender: z.nativeEnum(GenderEnumType, {
-      message: 'Selecione um gênero válido',
+  fullName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres"),
+  phone: z.string().regex(/^\(\d{2}\) \d \d{4}-\d{4}$/, "Telefone inválido"),
+  birthDate: z
+    .string()
+    .min(1, "Data de nascimento obrigatória")
+    .refine((dateStr) => {
+      const today = new Date()
+      const birth = new Date(dateStr)
+      const age = today.getFullYear() - birth.getFullYear()
+      const monthDiff = today.getMonth() - birth.getMonth()
+      const dayDiff = today.getDate() - birth.getDate()
+
+      if (
+        age > 18 ||
+        (age === 18 && (monthDiff > 0 || (monthDiff === 0 && dayDiff >= 0)))
+      ) {
+        return true
+      }
+
+      return false
+    }, {
+      message: "Você deve ter pelo menos 18 anos",
     }),
-   })  
+  gender: z.nativeEnum(GenderEnumType, {
+    message: "Selecione um gênero válido",
+  }),
+})
+
 type FormValues = z.infer<typeof formSchema>
 
 export default function Step1() {

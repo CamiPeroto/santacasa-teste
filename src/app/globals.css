@@ -33,6 +33,7 @@
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-tertiary: var(--tertiary);
+  --color-quartenary: var(--quartenary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
@@ -58,6 +59,7 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: #686868;
   --tertiary: #142434;
+  --quartenary: #3D3E85;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);

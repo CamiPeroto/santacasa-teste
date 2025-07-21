@@ -12,7 +12,7 @@ import z from "zod"
 
 const formSchema = z.object({
      email: z.string().email( "Digite um e-mail válido"),
-       password: z.string().min(6, "A senha deve ter no mínimo 6 caracteres"),
+       password: z.string().min(8, "A senha deve ter no mínimo 8 caracteres"),
   confirmPassword: z.string()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "As senhas não coincidem",
@@ -55,7 +55,7 @@ export default function Step2() {
     name="password"
     control={control}
     type="password"
-    placeholder="Mínimo 6 caracteres"
+    placeholder="Mínimo 8 caracteres"
     required
   />
       </div>

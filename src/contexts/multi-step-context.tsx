@@ -10,6 +10,8 @@ export interface Step {
 
 interface MultiStepContextType {
   currentStep: number;
+  currentDescription: string;
+  currentStepTitle: string;
   steps: Step[];
   formData: Record<string, any>;
   setCurrentStep: (step: number) => void;
@@ -39,6 +41,11 @@ function updateFormData<T>(data: Partial<T>) {
     ...data,
   }))
 }
+
+   const currentDescription = steps[currentStep]?.description ?? ""
+
+  const currentStepTitle = steps[currentStep]?.title ?? "";
+
     const nextStep = () => {
         setCurrentStep((prev) => (prev < steps.length ? prev + 1 : prev))
     }
@@ -88,6 +95,8 @@ function updateFormData<T>(data: Partial<T>) {
             value={{
                 currentStep,
                 steps,
+                currentDescription,
+                currentStepTitle,
                 formData,
                 setCurrentStep,
                 updateFormData,
