@@ -6,7 +6,7 @@ import { Control, Controller, FieldValues, Path } from "react-hook-form";
 interface InputRHFProps<T extends FieldValues> extends InputHTMLAttributes<HTMLInputElement> {
   name: Path<T>;
   control: Control<T>;
-  type?: "text" | "phone" | "date"
+  type?: "text" | "phone" | "date" | "password"
 }
 
 export function InputRHF<T extends FieldValues>({
@@ -18,7 +18,7 @@ export function InputRHF<T extends FieldValues>({
 }: InputRHFProps<T>) {
   const maskPhoneRef =
   useMask({
-    mask: "(__) 0 ____-____",
+    mask: "(__) _ ____-____",
     replacement: { _: /\d/ },
   }) 
 
