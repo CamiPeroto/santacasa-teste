@@ -14,17 +14,17 @@ const stepsData: Step[] = [
     },
     {
         id: 2,
-                title: "Informações Pessoais",
-        description: "Vamos começar com seus dados principais"
+        title: "Informações da Conta",
+        description: "Crie uma senha segura para a sua conta"
     },
      {
         id: 3,
-                title: "Informações Pessoais",
-        description: "Vamos começar com seus dados principais"
+        title: "Finalizar Cadastro",
+        description: "Últimos detalhes e confirmação"
     },
 ]
 
-export default function CreateIngredientComponent() {
+export default function CreateAccountComponent() {
     return (
         <div className="@container/main">
             <MultiStepProvider initialSteps={stepsData}>
