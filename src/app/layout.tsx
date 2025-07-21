@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Teste - Santa Casa',
-  description: 'Teste para a vaga de Desenvolvedor Front-End',
+  description: 'Teste para a vaga de Desenvolvedor Front-End by Camila Peroto',
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <head>
         <meta name="apple-mobile-web-app-title" content="SantaCasa" />
       </head>
