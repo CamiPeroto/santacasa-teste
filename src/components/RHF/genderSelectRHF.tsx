@@ -9,14 +9,17 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { GenderEnumType } from '@/enums/gender';
-import { Control, Controller } from 'react-hook-form';
+import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
-type GenderSelectProps = {
-  control: Control<any>;
-  name: string;
+type GenderSelectProps<T extends FieldValues> = {
+  control: Control<T>;
+  name: Path<T>;
 };
 
-export function GenderSelectRHF({ control, name }: GenderSelectProps) {
+export function GenderSelectRHF<T extends FieldValues>({
+  control,
+  name,
+}: GenderSelectProps<T>) {
   return (
     <Controller
       name={name}

@@ -19,6 +19,7 @@ interface MultiStepContextType {
   currentDescription: string;
   currentStepTitle: string;
   steps: Step[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   formData: Record<string, any>;
   setCurrentStep: (step: number) => void;
   updateFormData: <T>(data: Partial<T>) => void;
@@ -36,6 +37,7 @@ const MultiStepContext = createContext<MultiStepContextType | undefined>(
 interface MultiStepProviderProps {
   children: ReactNode;
   initialSteps: Step[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   initialData?: Record<string, any>;
 }
 export function MultiStepProvider({
@@ -45,6 +47,7 @@ export function MultiStepProvider({
 }: MultiStepProviderProps) {
   const [currentStep, setCurrentStep] = useState(0);
   const [steps, setSteps] = useState<Step[]>(initialSteps);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [formData, setFormData] = useState<Record<string, any>>(initialData);
 
   function updateFormData<T>(data: Partial<T>) {
