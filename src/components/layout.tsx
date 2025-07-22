@@ -9,7 +9,7 @@ export default function Layout() {
     router.push('/account/create');
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-start md:min-h-screen lg:min-h-[80vh] px-4 md:px-16 py-8 gap-4 md:gap-8 lg:px-48">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-start md:min-h-screen lg:min-h-[80vh] px-4 md:px-4 py-8 gap-4 md:gap-8 lg:px-42">
       <div className="md:flex flex-col justify-between bg-background md:ms-15 md:mt-5">
         <div className="mb-6 md:mb-10">
           <h1 className="text-4xl text-center md:text-[4rem] font-bold text-primary mb-4 max-w-xl tracking-wider break-words">
