@@ -44,7 +44,7 @@ export default function Footer() {
         <p className="text-center">
           © 2025 Camila Peroto. Todos os direitos reservados.
         </p>
-        <div className="flex gap-4 mt-2 md:mt-0">
+        <div className="flex gap-4 mt-5 md:mt-0">
           <Link href="#" className="hover:underline">
             Política de Privacidade
           </Link>
