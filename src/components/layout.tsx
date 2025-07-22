@@ -18,7 +18,7 @@ export default function Layout() {
           <p className="text-2xl md:text-5xl font-semibold text-center md:text-center md:ms-12 text-gray-600 mb-6 max-w-md leading-tight">
             Conheça a Maior e Melhor Estrutura Hospitalar da Região
           </p>
-          <div className="flex justify-center md:justify-end max-w-[22rem]">
+          <div className="flex justify-center md:justify-end w-full max-w-[22rem]">
             <Button
               size="lg"
               onClick={handleCreateAccount}
