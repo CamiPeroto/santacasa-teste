@@ -70,37 +70,35 @@ export default function Step3() {
             )}
           </div>
         </div>
-        <div className="flex items-start space-x-2">
-          <Controller
-            control={control}
-            name="termsAccepted"
-            render={({ field, fieldState }) => (
-              <>
-                <Checkbox
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                  id="terms"
-                />
-                <Label htmlFor="terms" className="text-sm leading-relaxed">
-                  Eu aceito os{' '}
-                  <a href="#" className="text-blue-600 underline">
-                    termos de uso
-                  </a>{' '}
-                  e a{' '}
-                  <a href="#" className="text-blue-600 underline">
-                    política de privacidade
-                  </a>{' '}
-                  *
-                </Label>
-                {fieldState.error && (
-                  <p className="text-sm text-red-500">
-                    {fieldState.error.message}
-                  </p>
-                )}
-              </>
-            )}
-          />
+        <div className="flex flex-col md:flex-row items-start gap-2">
+  <Controller
+    control={control}
+    name="termsAccepted"
+    render={({ field, fieldState }) => (
+      <>
+        <Checkbox
+          checked={field.value}
+          onCheckedChange={field.onChange}
+          id="terms"
+        />
+        <div className="text-sm leading-relaxed">
+          Eu aceito os{' '}
+          <span className="text-blue-600 underline cursor-pointer">
+            termos de uso
+          </span>{' '}
+          e a{' '}
+          <span className="text-blue-600 underline cursor-pointer">
+            política de privacidade
+          </span>{' '}
+          *
+          {fieldState.error && (
+            <p className="text-red-500 mt-1">{fieldState.error.message}</p>
+          )}
         </div>
+      </>
+    )}
+  />
+</div>
         <div className="flex justify-between pt-4">
           <Button
             type="button"
