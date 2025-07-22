@@ -9,13 +9,13 @@ export default function Layout() {
     router.push('/account/create');
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 items-start md:min-h-screen px-4 md:px-16 py-8 gap-4 md:gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 items-start md:min-h-screen lg:min-h-[80vh] px-4 md:px-16 py-8 gap-4 md:gap-8 lg:px-48">
       <div className="md:flex flex-col justify-between bg-background md:ms-15 md:mt-5">
         <div className="mb-6 md:mb-10">
           <h1 className="text-4xl text-center md:text-[4rem] font-bold text-primary mb-4 max-w-xl tracking-wider break-words">
             Santa Casa de Ponta-Grossa:
           </h1>
-          <p className="text-2xl md:text-5xl font-semibold text-center md:text-center md:ms-12 text-gray-600 mb-6 max-w-md leading-tight">
+          <p className="text-2xl md:text-5xl font-semibold text-center md:text-center md:ms-12 text-gray-600 mb-6 max-w-md leading-tight lg:mb-10">
             Conheça a Maior e Melhor Estrutura Hospitalar da Região
           </p>
           <div className="flex justify-center md:justify-end w-full max-w-[22rem]">
@@ -34,7 +34,7 @@ export default function Layout() {
         </p>
       </div>
 
-      <div className="relative h-[300px] md:h-[580px] md:w-xl rounded-xl overflow-hidden">
+      <div className="relative h-[300px] md:h-[580px] lg:h-[620px] md:w-xl rounded-xl overflow-hidden">
         <Image
           src="/images/bg-santacasa.jpg"
           alt="Imagem Santa Casa"
